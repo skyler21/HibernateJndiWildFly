@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+   <session-factory>
+      <!-- Database Connection Settings -->
+      <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>    
+      <property name="hibernate.connection.datasource">java:/global/jdbc/MySqlDS</property>
+      <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tutorialdb?serverTimezone=US/Eastern</property>
+      <property name="hibernate.connection.username">root</property>
+      <property name="hibernate.connection.password">Qazwsx21$</property>
+      <property name="show_sql">true</property>
+       
+      <!-- SQL Dialect -->
+      <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+       
+      <!-- Specifying Session Context -->
+      <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+       
+      <!-- Mapping With Model Class Containing Annotations -->
+      <mapping class="com.jcg.hibernate.jndi.model.Employee" />
+   </session-factory>
+</hibernate-configuration>

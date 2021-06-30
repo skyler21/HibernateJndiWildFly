@@ -1,0 +1,3 @@
+com/jcg/hibernate/jndi/listener/HibernateSessionFactoryListener.class
+com/jcg/hibernate/jndi/model/Employee.class
+com/jcg/hibernate/jndi/GetEmployeeById.class

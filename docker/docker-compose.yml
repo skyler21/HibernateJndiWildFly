@@ -1,0 +1,36 @@
+version: '2.4'
+services: 
+    web:
+        build: .
+        ports:
+         - "8080:8080" 
+        links:
+         - db 
+        depends_on: 
+           db:         
+              condition: service_healthy
+
+    db:    
+        image: mysql:latest
+        volumes:
+            - "mysql-data:/var/lib/mysql"
+        environment:
+           MYSQL_ROOT_PASSWORD: Qazwsx21
+           MYSQL_DATABASE: TestDb
+           MYSQL_ROOT_HOST: "%"
+           TZ: "US/Eastern"
+
+        ports:
+         - "3306:3306" 
+   
+        expose: 
+         - "3306"  
+        
+        healthcheck:
+           test: "/usr/bin/mysql --user=root --password=Qazwsx21 --execute \"SET GLOBAL time_zone = 'US/Eastern';\""
+           interval: 2s
+           timeout: 20s
+           retries: 10
+        
+volumes:
+    mysql-data: 
